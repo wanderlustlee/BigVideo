@@ -1,7 +1,7 @@
 # BigVideo
 基于各种HTML5新特性实现的视频播放互动网页
 
-#Websocket组件如何使用
+# Websocket组件如何使用
 
 先上个例子：
 
@@ -41,7 +41,7 @@ isSendAddress : boolen，是否发送给服务器地址信息，可为空，默�
 
 
 
-#注意：
+# 注意：
 如果不用https协议,访问服务器地址为ip时，会报错。localhost访问没问题。
 ```
 [Deprecation] getCurrentPosition() and watchPosition() no longer work on insecure origins. 
@@ -52,5 +52,5 @@ See https://goo.gl/rStTGz for more details.
 
 因为上面的两个方法只能在https协议下使用，localhost不会报错是因为localhost会被认为是基于HTTP的安全来源。
 
-###补充
+### 补充
 目前只支持发送文本数据和图片，其他格式信息待优化。
