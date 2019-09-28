@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="lessDemo.css"/>
+    <link rel="stylesheet" href="common.css"/>
+    <link rel="stylesheet" href="canvas.css"/>
+    <title></title>
+
+</head>
+
+<body>
+<header class="header">
+    <ul>
+        <li>
+            <svg width="70px" height="60px">
+                <circle cx="35" cy="30" r="25"></circle>
+                <polygon points="30 20, 45 30, 30 40"/>
+            </svg>
+            <a class="header-left" href="#home">BigVideo</a></li>
+        <li><a href="#home">主页</a></li>
+        <li><a href="#video">视频</a></li>
+        <li><a href="#news">评论区</a></li>
+        <li><a href="#search">搜索</a></li>
+        <li><a href="#contact-us">联系我们</a></li>
+
+    </ul>
+
+</header>
+
+<section id="home">
+    <canvas id="canvasMain" class="canvas"></canvas>
+    <nav class="content-title">
+        <canvas id="canvasTitle"></canvas>
+    </nav>
+
+    <section class="content-main" id="main">
+        <section class="content-video">
+            <video id="video" src="http://vjs.zencdn.net/v/oceans.mp4" controls="controls" autoplay height="100%"
+                   width="100%">
+                您的浏览器不支持。
+            </video>
+        </section>
+
+        <section class="content-message">
+            <div class="message-display" id="message">
+
+            </div>
+            <section class="send-div">
+                <input type="text" placeholder="点击输入评论" class="sendInput" id="text" style="display: inline-block"/>
+
+                <div class="button-box">
+                    <!--				<input type="file" accept="image/*" class="sendButton" value="选择图片发送" id="selectPicture"/>-->
+                    <a href="javascript:void(0)" class="file">发送图片
+                        <input type="file" accept="image/*" id="selectPicture">
+                    </a>
+                    <a href="javascript:void(0)" class="file" id="sendMessage" onclick="">发送
+                        <input type="button" accept="image/*" >
+                    </a>
+                    <!--				<input type="button" class="sendButton" onclick="send()" value="发送" />-->
+                </div>
+
+            </section>
+        </section>
+    </section>
+
+    <div class="content">
+    </div>
+</section>
+
+<!-- <button type="button" style="text-align: center;" onclick="launchFullScreen(document.getElementById('video'))">全屏</button> -->
+
+<!-- <section class="content-video">
+    <audio controls="controls">
+        <source src="/i/song.ogg" type="audio/ogg">
+        <source src="/i/song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</section> -->
+
+
+<!--<footer class="footer">-->
+
+<!--</footer>-->
+
+</body>
+<script src="websocketDemo.js"></script>
+<script src="common.js"></script>
+<script src="canvas.js"></script>
+
+<script type="text/javascript">
+    //全屏幕播放
+    function launchFullScreen(element) {
+        if (element.requestFullScreen) {
+            element.requestFullScreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullScreen) {
+            element.webkitRequestFullScreen();
+        }
+    }
+
+
+</script>
+</html>

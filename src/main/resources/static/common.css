@@ -1,0 +1,49 @@
+ul{
+    display:inline-block;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+
+}
+
+li{
+    float:left;
+    font-size: 1.3rem;
+}
+
+li a
+{
+    display:inline-block;
+    color:white;
+    text-align:center;
+    padding:0.8rem 0.4rem;
+    text-decoration:none;
+
+}
+
+li:nth-child(n+2):hover
+{
+    background-color:#1E88C7;
+}
+
+.header-left {
+    display:inline-block;
+    list-style-type:none;
+    overflow:hidden;
+    color:white;
+    text-align:center;
+    margin-right: 10rem;
+    font-size: 2rem;
+    line-height: 1.5rem;
+}
+
+svg {
+    stroke: #51c6ea;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+

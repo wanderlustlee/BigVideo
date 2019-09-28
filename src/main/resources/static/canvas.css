@@ -1,0 +1,26 @@
+#home {
+    position: relative;
+    width: 100%;
+    min-width: 800px;
+    height: 100%;
+    color: #fff;
+    /* box-sizing: border-box; */
+    overflow-x: hidden;
+    background: rgba(7, 17, 27, 0.95);
+    z-index: 1;
+}
+
+.canvas {
+    position: fixed;
+    z-index: -1;
+}
+
+
+.content {
+    height: 50rem;
+    margin-top: -16px;
+    display: flex;
+}
+
+
+
