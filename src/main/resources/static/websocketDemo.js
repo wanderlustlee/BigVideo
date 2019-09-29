@@ -43,6 +43,24 @@ WebsocketComponent.prototype = {
         var that = this;
         this.websocket.onopen = function (event) {
             setMessageInnerHTML("开启连接",that.displayNode);
+            console.log("定时删除弹幕dom")
+            // 定时删除弹幕dom
+            setInterval(()=>{
+                console.log("定时删除弹幕dom  开始执行")
+                let danmuList = [...document.getElementsByClassName("danmu")];
+                console.log(danmuList)
+                danmuList.forEach(div => {
+                    let offsetLeft = div.offsetLeft;
+                    let parentWidth = Math.round(parseFloat(window.getComputedStyle(div.parentElement,null).width));
+                    if (offsetLeft === parentWidth) {
+                        console.log("播放完了");
+                        let parent = div.parentElement;
+                        parent.removeChild(div);
+                    }
+                });
+
+            },10000);
+
         };
 
         //接收到消息的回调方法
@@ -156,22 +174,6 @@ function displayDanmu(innerHTML) {
     childNode.style.textShadow = "2px 2px 4px #000000";
     childNode.innerHTML = innerHTML;
     videoDiv.appendChild(childNode);
-
-    setTimeout(()=>{
-        let danmuList = [...document.getElementsByClassName("danmu")];
-
-        danmuList.forEach(div => {
-            let offsetLeft = div.offsetLeft;
-            let parentWidth = parseInt(window.getComputedStyle(div.parentElement,null).width);
-
-            if (offsetLeft === parentWidth) {
-                console.log("播放完了");
-                let parent = div.parentElement;
-                parent.removeChild(div);
-            }
-        });
-
-    },9000);
 
 }
 
