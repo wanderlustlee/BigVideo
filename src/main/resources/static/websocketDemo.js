@@ -43,12 +43,10 @@ WebsocketComponent.prototype = {
         var that = this;
         this.websocket.onopen = function (event) {
             setMessageInnerHTML("开启连接",that.displayNode);
-            console.log("定时删除弹幕dom")
             // 定时删除弹幕dom
             setInterval(()=>{
                 console.log("定时删除弹幕dom  开始执行")
                 let danmuList = [...document.getElementsByClassName("danmu")];
-                console.log(danmuList)
                 danmuList.forEach(div => {
                     let offsetLeft = div.offsetLeft;
                     let parentWidth = Math.round(parseFloat(window.getComputedStyle(div.parentElement,null).width));
