@@ -87,7 +87,7 @@ WebsocketComponent.prototype = {
                     window.localStorage.setItem("location", result);
                 }
                 that.websocket.send(JSON.stringify(message));
-                that.value = "";
+                that.inputNode.value = "";
             });
         }
 
@@ -135,6 +135,8 @@ function setMessageInnerHTML(innerHTML,displayNode) {
                 var color = event.data;
                 innerHTML = "<span style='color:" + color + "'>" + innerHTML + "</span>";
                 displayNode.innerHTML += innerHTML + '<br/>';
+                displayDanmu(innerHTML);
+
             };
         } else {
             document.getElementById("result").innerHTML = "抱歉，你的浏览器不支持 Web Workers...";
@@ -144,6 +146,33 @@ function setMessageInnerHTML(innerHTML,displayNode) {
 
     displayNode.scrollTop = displayNode.scrollHeight*2;
     console.log("滑到最下面");
+}
+
+function displayDanmu(innerHTML) {
+    const videoDiv = document.getElementById("content-video");
+    const childNode = document.createElement('div');
+    childNode.className = "danmu";
+    childNode.style.top = Math.floor((Math.random() * 95)).toString() + "%";
+    childNode.style.textShadow = "2px 2px 4px #000000";
+    childNode.innerHTML = innerHTML;
+    videoDiv.appendChild(childNode);
+
+    setTimeout(()=>{
+        let danmuList = [...document.getElementsByClassName("danmu")];
+
+        danmuList.forEach(div => {
+            let offsetLeft = div.offsetLeft;
+            let parentWidth = parseInt(window.getComputedStyle(div.parentElement,null).width);
+
+            if (offsetLeft === parentWidth) {
+                console.log("播放完了");
+                let parent = div.parentElement;
+                parent.removeChild(div);
+            }
+        });
+
+    },9000);
+
 }
 
 //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。

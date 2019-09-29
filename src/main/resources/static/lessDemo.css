@@ -72,6 +72,8 @@
   box-shadow: 0 0 45px 0 rgba(0, 0, 0, 0.12);
 }
 .content-video {
+  position: relative;
+  overflow: hidden;
   vertical-align: top;
   display: inline-block;
   width: 60%;
@@ -209,4 +211,24 @@ svg {
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
+}
+.danmu {
+  position: absolute;
+  width: 400px;
+  left: 100%;
+  top: 0%;
+  visibility: hidden;
+  animation: danmu 8s linear 0s ;
+}
+@keyframes danmu {
+  from {
+    left: 100%;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  to {
+    left: 0;
+    visibility: visible;
+    transform: translateX(-100%);
+  }
 }
